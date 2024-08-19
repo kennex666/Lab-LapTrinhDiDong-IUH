@@ -1,0 +1,3 @@
+Change all commit
+
+git filter-repo --commit-callback "if commit.author_email == b'Student@gmail.com': commit.author_name = b'Bao Duong'; commit.author_email = b'me@dtbao.io.vn'" --force
