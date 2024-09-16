@@ -14,27 +14,37 @@ export default function HomeScreen() {
   const navigation = useNavigation();
   
   const onPressForgotPWD = () => {
-    console.log(2124)
-    navigation.dispatch(CommonActions.reset({
-      routes: [{name: "forgetpwd"}]
-    }))
+    navigation.dispatch(
+      CommonActions.reset({
+        routes: [{ name: "signupscreen" }],
+      })
+    );
   }
 
   return (
-      <View style={styles.viewContainer}>
-          <View style={styles.logoContainer}>
-              <Image source={require("../assets/snack-icon.png")} style={styles.logoImage} />
-              <Text style={styles.textLogo} >{"Grow\nYour Bussiness"}</Text>
-          </View>
-          <View style={styles.centerContainer}>
-            <Text style={[styles.textCenter, styles.bold]}>We will help you to grow your business using online server</Text>
-          </View>
-
-          <View style={styles.buttonContainer}>
-            <Button title="Login" />
-            <Button title="Sign up" onPress={onPressForgotPWD}/>
-          </View> 
+    <View style={styles.viewContainer}>
+      <View style={styles.logoContainer}>
+        <Image
+          source={require("../assets/img/logo-circle.png")}
+          style={styles.logoImage}
+        />
       </View>
+
+      <View style={styles.centerContainer}>
+        <Text style={styles.textLogo}>{"GROW\nYOUR BUSINESS"}</Text>
+      </View>
+
+      <View style={styles.centerContainer}>
+        <Text style={[styles.textCenter, styles.bold]}>
+          We will help you to grow your business using online server
+        </Text>
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <Button title="Login" />
+        <Button title="Sign up" onPress={onPressForgotPWD} />
+      </View>
+    </View>
   );
 }
 const gapMargin = 40;
@@ -45,22 +55,26 @@ const styles = StyleSheet.create({
   buttonContainer:{
     flexDirection: "row",
     gap: 25,
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
   },
   textCenter: {
     textAlign: "center"
   },
   centerContainer: {
     paddingHorizontal: 25,
-    marginBottom: gapMargin
+    marginBottom: gapMargin,
+    flex: 1
   },
   textLogo: {
     textAlign: "center",
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold"
   },  
   logoImage: { 
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
     marginBottom: gapMargin
   },
   container: {
@@ -76,6 +90,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#00CCF9"
   },
   logoContainer: {
-    marginBottom: gapMargin
+    marginBottom: gapMargin,
+    display: "flex",
+    justifyContent: "flex-end",
+    flex: 3
   },
 });
